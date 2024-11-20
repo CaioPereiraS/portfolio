@@ -1,0 +1,277 @@
+/* Estilos Gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, #1f1f1f, #333);
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 4px solid #444;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Cards */
+.card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  color: #66bb6a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.paragraph {
+  display: flex;
+  flex-direction: row;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+/* Sobre Mim */
+.sobre-mim .content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sobre-mim img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+
+  border: 2px solid #ffffff;
+}
+
+.sobre-mim p {
+  text-align: justify;
+}
+
+/* Tecnologias e Soft Skills */
+.habilidades .content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.habilidades .tecnologias,
+.habilidades .soft-skills {
+  flex: 1;
+  min-width: 300px;
+}
+
+.habilidades h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #66bb6a;
+  border-bottom: 2px solid #444;
+  padding-bottom: 5px;
+}
+
+.habilidades ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.habilidades ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  background: #252525;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: #bdbdbd;
+}
+
+.habilidades ul li i {
+  color: #66bb6a; /* Cor do ícone */
+  font-size: 1.2rem;
+}
+
+/* Experiência Profissional */
+.experiencia .content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experiencia .job {
+  background: #252525;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: #bdbdbd;
+}
+
+.experiencia h3 {
+  font-size: 1.5rem;
+  color: #66bb6a;
+  margin-bottom: 10px;
+}
+
+.experiencia p {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.experiencia strong {
+  color: #66bb6a;
+}
+
+.experiencia .job:hover {
+  background: #333333;
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+}
+
+.banner .contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+  }
+  
+  .banner .contact a {
+    text-decoration: none;
+    color: #bdbdbd;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.banner .contact a:hover {
+    color: #66bb6a;
+}
+
+.banner .contact a i {
+    font-size: 1.2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sobre-mim .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sobre-mim img {
+    margin-bottom: 20px;
+  }
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+
+}
+
+/* Toast */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 10px;
+    position: fixed;
+    z-index: 9999;
+    top: 30px; /* Mover o toast para o topo */
+    left: 50%;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+  }
+  
+  #toast.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Estilo do email */
+  .email {
+    cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
+    color: #bdbdbd;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .email:hover {
+    color: #66bb6a;
+  }
+  
+  .email i {
+    font-size: 1.2rem;
+  }
+  
+  /* Tooltip */
+  .email[title] {
+    position: relative;
+  }
+  
+  .email[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: -25px; /* Alinha o tooltip um pouco acima do texto */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    
+  }
+  
