@@ -14,23 +14,92 @@ body {
   margin: 0;
 }
 
-/* Banner */
+/* Header Compacto */
 .banner {
-  background: linear-gradient(135deg, #0d1117, #1e2227);
+  background: #0d1117;
   color: #e0e0e0;
-  text-align: center;
-  padding: 20px 10px;
-  border-bottom: 4px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .banner h1 {
-  font-size: 2.5rem;
-  margin-bottom: 5px;
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  margin: 0;
 }
 
-.banner p {
-  font-size: 1.2rem;
-  opacity: 0.8;
+.menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.menu a,
+.menu .email {
+  text-decoration: none;
+  color: #bdbdbd;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu a:hover,
+.menu .email:hover {
+  color: #e0e0e0;
+}
+
+.menu i {
+  font-size: 1rem;
+}
+
+/* Tooltip para o Email */
+.email[title] {
+  position: relative;
+}
+
+.email[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.email {
+  cursor: pointer;
+}
+
+.email:hover {
+  color: #e0e0e0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 
 /* Container */
@@ -45,7 +114,6 @@ body {
 /* Cards */
 .card {
   background: #0d1117;
-  border-radius: 10px;
   padding: 20px;
   max-width: 800px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -120,7 +188,6 @@ body {
   border: 1px solid #444;
   margin: 5px 0;
   padding: 10px;
-  border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   color: #bdbdbd;
 }
@@ -146,7 +213,6 @@ body {
   background: #0d1117;
   border: 1px solid #444;
   padding: 20px;
-  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   color: #bdbdbd;
 }
@@ -173,28 +239,28 @@ body {
 }
 
 .banner .contact {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 10px;
-  }
-  
-  .banner .contact a {
-    text-decoration: none;
-    color: #bdbdbd;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espaço entre o ícone e o texto */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.banner .contact a {
+  text-decoration: none;
+  color: #bdbdbd;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre o ícone e o texto */
 }
 
 .banner .contact a:hover {
-    color: #e0e0e0;
+  color: #e0e0e0;
 }
 
 .banner .contact a i {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 /* Responsividade */
@@ -216,70 +282,90 @@ body {
     row-gap: 20px;
     column-gap: 20px;
   }
-
 }
 
 /* Toast */
 #toast {
-    visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-    padding: 10px;
-    position: fixed;
-    z-index: 9999;
-    top: 30px; /* Mover o toast para o topo */
-    left: 50%;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity 0.5s ease, visibility 0s 0.5s;
-  }
-  
-  #toast.show {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-  }
-  
-  /* Estilo do email */
-  .email {
-    cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
-    color: #bdbdbd;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-  }
-  
-  .email:hover {
-    color: #e0e0e0;
-  }
-  
-  .email i {
-    font-size: 1.2rem;
-  }
-  
-  /* Tooltip */
-  .email[title] {
-    position: relative;
-  }
-  
-  .email[title]:hover::after {
-    content: attr(title);
-    position: absolute;
-    top: -25px; /* Alinha o tooltip um pouco acima do texto */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    font-size: 12px;
-    border-radius: 5px;
-    white-space: nowrap;
-    
-  }
-  
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  z-index: 9999;
+  top: 30px; /* Mover o toast para o topo */
+  left: 50%;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Estilo do email */
+.email {
+  cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
+  color: #bdbdbd;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.email:hover {
+  color: #e0e0e0;
+}
+
+.email i {
+  font-size: 1.2rem;
+}
+
+/* Tooltip */
+.email[title] {
+  position: relative;
+}
+
+.email[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -25px; /* Alinha o tooltip um pouco acima do texto */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Footer Simples */
+.footer {
+  background-color: #0d1117;
+  color: #bdbdbd;
+  text-align: center;
+  padding: 15px 10px;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.footer .heart {
+  color: #ff5252;
+  font-size: 1rem;
+}
+
+.footer:hover {
+  color: #e0e0e0;
+}
+
+.footer .heart:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
